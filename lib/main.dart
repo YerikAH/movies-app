@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movies_app/theme/app_theme.dart';
 import 'screens/screens.dart';
 
 
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
         'home':(context)=> const HomeScreen(),
         'details':(context)=> const DetailsScreen()
       },
+      theme: AppTheme.configTheme
     );
   }
 }
