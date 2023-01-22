@@ -17,6 +17,13 @@ class Result {
     required this.voteAverage,
     required this.voteCount,
   });
+  get fullPosterImg{
+    if(this.posterPath != null){
+      return "https://image.tmdb.org/t/p/w500${posterPath}";
+    }else{
+      return "http://ramenparados.com/wp-content/uploads/2018/12/yuruyuri-10-aniversario.jpg";
+    }
+  }
 
   bool adult;
   String backdropPath;
