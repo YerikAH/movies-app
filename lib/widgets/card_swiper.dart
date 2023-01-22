@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:movies_app/models/results_response.dart';
 
 class CardSwiper extends StatelessWidget {
-  final List<Result> movies= [];
+  final List<Result> movies;
    
-  CardSwiper({Key? key, required List<Result> movies}) : super(key: key);
+  const CardSwiper({Key? key, required this.movies}) : super(key: key);
   
   @override
   Widget build(BuildContext context) {
