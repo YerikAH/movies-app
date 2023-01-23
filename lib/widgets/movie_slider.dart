@@ -15,7 +15,7 @@ class MovieSlider extends StatelessWidget {
         children: [
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 20.0),
-            child: Text("Populares", style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.w700)),
+            child: Text("Populares", style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.w700, fontFamily: "NunitoSans")),
           ),
           const SizedBox( height:  15.0 ,),
           Expanded(
