@@ -11,6 +11,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
 
     final moviesProvider = Provider.of<MoviesProvider>(context,listen: true);
+
     // El listen es para que se vuelva a redibujar, true si, false no, debe de estar en false si esta dentro de un metodo.
     return Scaffold(
       appBar: AppBar(
@@ -26,7 +27,7 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           children: [
             CardSwiper(movies: moviesProvider.onDisplayMovies),
-            const MovieSlider()
+            MovieSlider(moviesPopular: moviesProvider.onPopularMovies,)
           ],
         ),
       )

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import '../models/models.dart';
 
 class MovieSlider extends StatelessWidget {
-   
-  const MovieSlider({Key? key}) : super(key: key);
+   final List<Result> moviesPopular;
+  const MovieSlider({Key? key, required this.moviesPopular}) : super(key: key);
   
   @override
   Widget build(BuildContext context) {
@@ -19,9 +20,15 @@ class MovieSlider extends StatelessWidget {
           const SizedBox( height:  15.0 ,),
           Expanded(
             child: ListView.builder(
+            
               scrollDirection: Axis.horizontal,
-              itemCount: 20,
-              itemBuilder: (context, index) => const _MoviePoster()
+              itemCount: moviesPopular.length,
+              itemBuilder: (context, index){
+
+                final String imagePath = moviesPopular[index].fullPosterImg;
+                final String nameMovie = moviesPopular[index].title;
+                return  _MoviePoster(imagePath: imagePath, nameMovie: nameMovie,);
+              }
             ),
           )
         ],
@@ -32,8 +39,9 @@ class MovieSlider extends StatelessWidget {
 
 
 class _MoviePoster extends StatelessWidget {
-   
-  const _MoviePoster({Key? key}) : super(key: key);
+   final String imagePath;
+   final String nameMovie;
+  const _MoviePoster({Key? key, required this.imagePath, required this.nameMovie}) : super(key: key);
   
   @override
   Widget build(BuildContext context) {
@@ -47,9 +55,9 @@ class _MoviePoster extends StatelessWidget {
             onTap: () => Navigator.pushNamed(context, 'details',arguments: 'movie'),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(20.0),
-              child: const FadeInImage(
+              child: FadeInImage(
                 placeholder: AssetImage("assets/no-image.jpg"),
-                image: NetworkImage('https://via.placeholder.com/300x400'),
+                image: NetworkImage(imagePath),
                 width: 130.0,
                 height: 190.0,
                 fit: BoxFit.cover,
@@ -57,8 +65,8 @@ class _MoviePoster extends StatelessWidget {
             ),
           ),
           const SizedBox( height:  5.0 ,),
-          const Text(
-            "Una pelicula",
+          Text(
+            nameMovie,
             overflow: TextOverflow.ellipsis,
             textAlign: TextAlign.center,
           )
