@@ -26,7 +26,7 @@ class MovieSlider extends StatelessWidget {
               itemBuilder: (context, index){
 
                 final String imagePath = moviesPopular[index].fullPosterImg;
-                final String nameMovie = moviesPopular[index].title;
+                final String nameMovie = moviesPopular[index].thereTitle;
                 return  _MoviePoster(imagePath: imagePath, nameMovie: nameMovie,);
               }
             ),

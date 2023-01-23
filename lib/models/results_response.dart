@@ -18,10 +18,17 @@ class Result {
     required this.voteCount,
   });
   get fullPosterImg{
-    if(this.posterPath != null){
+    if(posterPath != null){
       return "https://image.tmdb.org/t/p/w500${posterPath}";
     }else{
       return "http://ramenparados.com/wp-content/uploads/2018/12/yuruyuri-10-aniversario.jpg";
+    }
+  }
+  get thereTitle{
+    if(title != null){
+      return title;
+    }else{
+      return "";
     }
   }
 
