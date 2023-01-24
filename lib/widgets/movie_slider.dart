@@ -1,10 +1,37 @@
 import 'package:flutter/material.dart';
 import '../models/models.dart';
 
-class MovieSlider extends StatelessWidget {
+class MovieSlider extends StatefulWidget {
    final List<Result> moviesPopular;
-  const MovieSlider({Key? key, required this.moviesPopular}) : super(key: key);
-  
+   final Function onNextPage;
+  const MovieSlider({Key? key, required this.moviesPopular, required this.onNextPage}) : super(key: key);
+
+  @override
+  State<MovieSlider> createState() => _MovieSliderState();
+}
+
+class _MovieSliderState extends State<MovieSlider> {
+
+  final ScrollController scrollController = ScrollController();
+
+  @override
+  void initState(){
+    super.initState();
+    print("HOla mundo");
+    scrollController.addListener(() {
+      if (scrollController.position.pixels + 500 >= scrollController.position.maxScrollExtent){
+        print("Obejetener la siguiente pagina");
+        widget.onNextPage();
+      }
+    });
+  }
+
+  @override
+  void dispose(){
+    super.dispose();
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -20,13 +47,13 @@ class MovieSlider extends StatelessWidget {
           const SizedBox( height:  15.0 ,),
           Expanded(
             child: ListView.builder(
-            
+              controller: scrollController,
               scrollDirection: Axis.horizontal,
-              itemCount: moviesPopular.length,
+              itemCount: widget.moviesPopular.length,
               itemBuilder: (context, index){
 
-                final String imagePath = moviesPopular[index].fullPosterImg;
-                final String nameMovie = moviesPopular[index].thereTitle;
+                final String imagePath = widget.moviesPopular[index].fullPosterImg;
+                final String nameMovie = widget.moviesPopular[index].thereTitle;
                 return  _MoviePoster(imagePath: imagePath, nameMovie: nameMovie,);
               }
             ),
