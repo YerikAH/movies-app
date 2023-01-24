@@ -15,11 +15,11 @@ class DetailsScreen extends StatelessWidget {
     return  Scaffold(
       body: CustomScrollView(
         slivers: [
-          _CustomAppBar(),
+          const _CustomAppBar(),
           SliverList(
             delegate: SliverChildListDelegate([
-              _PosterAndTitle(),
-              _Overview(),
+              _PosterAndTitle(backdropImage: movie.fullBackdropPath, titleMovie: movie.title, voteMovie: movie.voteAverage,),
+              _Overview(descriptionMovie: movie.overview,),
               CastingCards(),
             ]),
           )
@@ -30,15 +30,16 @@ class DetailsScreen extends StatelessWidget {
 }
 
 class _Overview extends StatelessWidget {
+  final String descriptionMovie;
   const _Overview({
-    Key? key,
+    Key? key, required this.descriptionMovie,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 30.0,vertical: 10.0),
-      child: Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut vulputate velit. Integer eget cursus magna, sagittis suscipit magna. Suspendisse vestibulum sapien sit amet ipsum congue gravida ut a lacus. Fusce lorem orci, commodo at fringilla a, tristique id leo. Integer sodales cursus nisl nec congue. Sed semper hendrerit augue vel lacinia. Integer vehicula nunc sit amet efficitur dignissim. Nunc non quam nunc. ",
+      child: Text(descriptionMovie,
       textAlign: TextAlign.justify,
       style: Theme.of(context).textTheme.subtitle1,
       ),
@@ -47,8 +48,11 @@ class _Overview extends StatelessWidget {
 }
 
 class _PosterAndTitle extends StatelessWidget {
+  final String titleMovie;
+  final double voteMovie;
+  final String backdropImage;
   const _PosterAndTitle({
-    Key? key,
+    Key? key, required this.backdropImage, required this.titleMovie, required this.voteMovie,
   }) : super(key: key);
 
   @override
@@ -56,15 +60,15 @@ class _PosterAndTitle extends StatelessWidget {
     final TextTheme textTheme= Theme.of(context).textTheme;
 
     return Container(
-      margin: EdgeInsets.only(top: 20.0),
-      padding: EdgeInsets.symmetric(horizontal:20.0 ),
+      margin: const EdgeInsets.only(top: 20.0),
+      padding: const EdgeInsets.symmetric(horizontal:20.0 ),
       child: Row(
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(30.0),
-            child: const FadeInImage(
-              placeholder: AssetImage("assets/no-image.jpg"),
-              image: NetworkImage("https://via.placeholder.com/300x400"),
+            child: FadeInImage(
+              placeholder: const AssetImage("assets/no-image.jpg"),
+              image: NetworkImage(backdropImage),
               height: 150,
             ),
           ),
@@ -73,13 +77,13 @@ class _PosterAndTitle extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "title.movie",
+                titleMovie,
                 style: textTheme.headline5,
                 overflow: TextOverflow.ellipsis,
                 maxLines: 2,
               ),
               Text(
-                "title.movie",
+                titleMovie,
                 style: textTheme.subtitle1,
                 overflow: TextOverflow.ellipsis
               ),
@@ -87,7 +91,7 @@ class _PosterAndTitle extends StatelessWidget {
                 children: [
                   const Icon(Icons.star_outline, size: 15,color: Colors.grey,),
                   const SizedBox(width: 10.0,),
-                  Text("movie.voteAverage",style:textTheme.caption)
+                  Text("$voteMovie",style:textTheme.caption)
                 ],
               )
             ],

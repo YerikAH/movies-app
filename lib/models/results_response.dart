@@ -33,7 +33,7 @@ class Result {
   }
 
   get fullBackdropPath{
-    if(this.backdropPath != null){
+    if(backdropPath != null){
       return "https://image.tmdb.org/t/p/w500${backdropPath}";
     }else{
       return "http://ramenparados.com/wp-content/uploads/2018/12/yuruyuri-10-aniversario.jpg";
