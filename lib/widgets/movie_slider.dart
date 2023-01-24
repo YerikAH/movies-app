@@ -61,7 +61,8 @@ class _MovieSliderState extends State<MovieSlider> {
 
                 final String imagePath = widget.moviesPopular[index].fullPosterImg;
                 final String nameMovie = widget.moviesPopular[index].thereTitle;
-                return  _MoviePoster(imagePath: imagePath, nameMovie: nameMovie,);
+                final Result movie = widget.moviesPopular[index];
+                return  _MoviePoster(imagePath: imagePath, nameMovie: nameMovie, movie: movie,);
               }
             ),
           )
@@ -75,7 +76,9 @@ class _MovieSliderState extends State<MovieSlider> {
 class _MoviePoster extends StatelessWidget {
    final String imagePath;
    final String nameMovie;
-  const _MoviePoster({Key? key, required this.imagePath, required this.nameMovie}) : super(key: key);
+   final Result movie;
+   
+  const _MoviePoster({Key? key, required this.imagePath, required this.nameMovie, required this.movie}) : super(key: key);
   
   @override
   Widget build(BuildContext context) {
@@ -86,7 +89,7 @@ class _MoviePoster extends StatelessWidget {
       child: Column(
         children: [
           GestureDetector(
-            onTap: () => Navigator.pushNamed(context, 'details',arguments: 'movie'),
+            onTap: () => Navigator.pushNamed(context, 'details',arguments: movie),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(20.0),
               child: FadeInImage(

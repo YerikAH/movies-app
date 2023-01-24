@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movies_app/models/models.dart';
 import '../widgets/widgets.dart';
 
 class DetailsScreen extends StatelessWidget {
@@ -7,7 +8,8 @@ class DetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final String movie = ModalRoute.of(context)?.settings.arguments.toString() ?? 'no-movie';
+    final Result movie = ModalRoute.of(context)!.settings.arguments as Result;
+    print(movie.title);
 
 
     return  Scaffold(
