@@ -11,7 +11,7 @@ class MovieSlider extends StatefulWidget {
 }
 
 class _MovieSliderState extends State<MovieSlider> {
-
+  bool _canGetMore = true;
   final ScrollController scrollController = ScrollController();
 
   @override
@@ -20,8 +20,15 @@ class _MovieSliderState extends State<MovieSlider> {
     print("HOla mundo");
     scrollController.addListener(() {
       if (scrollController.position.pixels + 500 >= scrollController.position.maxScrollExtent){
-        print("Obejetener la siguiente pagina");
-        widget.onNextPage();
+        final double diff = scrollController.position.maxScrollExtent - scrollController.position.pixels; 
+        if(diff <= 500){
+          if(_canGetMore){
+            _canGetMore = false;
+            widget.onNextPage();
+          } 
+        } else {
+          _canGetMore = true;
+        }
       }
     });
   }
