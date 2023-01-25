@@ -7,7 +7,7 @@ class CastingCards extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(bottom: 30.0, top: 50.0),
+      margin: const EdgeInsets.only(bottom: 20.0, top: 30.0,left: 20.0),
       width: double.infinity,
       height: 225.0,
       child: ListView.builder(

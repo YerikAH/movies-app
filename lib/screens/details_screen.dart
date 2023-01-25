@@ -18,9 +18,12 @@ class DetailsScreen extends StatelessWidget {
           _CustomAppBar(backdropImage: movie.fullBackdropPath, titleMovie: movie.title,),
           SliverList(
             delegate: SliverChildListDelegate([
-              _PosterAndTitle(image: movie.fullPosterImg, titleMovie: movie.title, voteMovie: movie.voteAverage,),
+              _PosterAndTitle(image: movie.fullPosterImg, titleMovie: movie.title, voteMovie: movie.voteAverage, movieText: movie.originalTitle,),
               _Overview(descriptionMovie: movie.overview,),
-              Text("Actors"),
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 30.0),
+                child: Text("Actors",style: Theme.of(context).textTheme.headline5,)
+                ),
               CastingCards(),
             ]),
           )
@@ -50,10 +53,11 @@ class _Overview extends StatelessWidget {
 
 class _PosterAndTitle extends StatelessWidget {
   final String titleMovie;
+  final String movieText;
   final double voteMovie;
   final String image;
   const _PosterAndTitle({
-    Key? key, required this.image, required this.titleMovie, required this.voteMovie,
+    Key? key, required this.image, required this.titleMovie, required this.voteMovie, required this.movieText,
   }) : super(key: key);
 
   @override
@@ -78,7 +82,7 @@ class _PosterAndTitle extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                titleMovie,
+                movieText,
                 style: textTheme.headline5,
                 overflow: TextOverflow.ellipsis,
                 maxLines: 2,
