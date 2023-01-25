@@ -1,12 +1,14 @@
+// ignore_for_file: unnecessary_null_comparison
+
 class Result {
-  var originalLanguage;
+  final String originalLanguage;
 
   Result({
     required this.adult,
     required this.backdropPath,
     required this.genreIds,
     required this.id,
-    this.originalLanguage,
+    required this.originalLanguage,
     required this.originalTitle,
     required this.overview,
     required this.popularity,

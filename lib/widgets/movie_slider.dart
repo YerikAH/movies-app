@@ -41,7 +41,7 @@ class _MovieSliderState extends State<MovieSlider> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: double.infinity,
       height: 260.0,
       child: Column(
@@ -93,7 +93,7 @@ class _MoviePoster extends StatelessWidget {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(20.0),
               child: FadeInImage(
-                placeholder: AssetImage("assets/no-image.jpg"),
+                placeholder: const AssetImage("assets/no-image.jpg"),
                 image: NetworkImage(imagePath),
                 width: 130.0,
                 height: 190.0,
