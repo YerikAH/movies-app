@@ -15,11 +15,12 @@ class DetailsScreen extends StatelessWidget {
     return  Scaffold(
       body: CustomScrollView(
         slivers: [
-          const _CustomAppBar(),
+          _CustomAppBar(backdropImage: movie.fullBackdropPath, titleMovie: movie.title,),
           SliverList(
             delegate: SliverChildListDelegate([
-              _PosterAndTitle(backdropImage: movie.fullBackdropPath, titleMovie: movie.title, voteMovie: movie.voteAverage,),
+              _PosterAndTitle(image: movie.fullPosterImg, titleMovie: movie.title, voteMovie: movie.voteAverage,),
               _Overview(descriptionMovie: movie.overview,),
+              Text("Actors"),
               CastingCards(),
             ]),
           )
@@ -50,9 +51,9 @@ class _Overview extends StatelessWidget {
 class _PosterAndTitle extends StatelessWidget {
   final String titleMovie;
   final double voteMovie;
-  final String backdropImage;
+  final String image;
   const _PosterAndTitle({
-    Key? key, required this.backdropImage, required this.titleMovie, required this.voteMovie,
+    Key? key, required this.image, required this.titleMovie, required this.voteMovie,
   }) : super(key: key);
 
   @override
@@ -68,7 +69,7 @@ class _PosterAndTitle extends StatelessWidget {
             borderRadius: BorderRadius.circular(30.0),
             child: FadeInImage(
               placeholder: const AssetImage("assets/no-image.jpg"),
-              image: NetworkImage(backdropImage),
+              image: NetworkImage(image),
               height: 150,
             ),
           ),
@@ -104,8 +105,10 @@ class _PosterAndTitle extends StatelessWidget {
 }
 
 class _CustomAppBar extends StatelessWidget {
+    final String backdropImage;
+    final String titleMovie;
   const _CustomAppBar({
-    Key? key,
+    Key? key, required this.backdropImage, required this.titleMovie,
   }) : super(key: key);
 
   @override
@@ -122,14 +125,14 @@ class _CustomAppBar extends StatelessWidget {
           width: double.infinity,
           color: Colors.black12,
           alignment: Alignment.bottomCenter,
-          child: const Text(
-            "movie.title",
-            style: TextStyle(fontSize: 16),
+          child: Text(
+            titleMovie,
+            style: const TextStyle(fontSize: 16),
           )
         ),
-        background: const FadeInImage(
-          placeholder: AssetImage("assets/loading.gif"),
-          image: NetworkImage('https://via.placeholder.com/500x300'),
+        background: FadeInImage(
+          placeholder: const AssetImage("assets/loading.gif"),
+          image: NetworkImage(backdropImage),
           fit: BoxFit.cover,
         ),
       ),

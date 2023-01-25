@@ -9,13 +9,13 @@ class HomeScreen extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-
+    final TextTheme textTheme= Theme.of(context).textTheme;
     final moviesProvider = Provider.of<MoviesProvider>(context,listen: true);
 
     // El listen es para que se vuelva a redibujar, true si, false no, debe de estar en false si esta dentro de un metodo.
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Movies in cinema "),
+        title: Text("Movies in cinema", style: textTheme.headline1 ,),
         actions: [
           IconButton(
             onPressed: (){}, 

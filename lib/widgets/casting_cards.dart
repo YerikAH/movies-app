@@ -7,7 +7,7 @@ class CastingCards extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(bottom: 30.0),
+      margin: EdgeInsets.only(bottom: 30.0, top: 50.0),
       width: double.infinity,
       height: 225.0,
       child: ListView.builder(
@@ -28,7 +28,7 @@ class _CastCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 10.0),
+      margin: const EdgeInsets.symmetric(horizontal: 10.0,),
       width: 110.0,
       height: 100.0,
       child: Column(
@@ -37,7 +37,7 @@ class _CastCard extends StatelessWidget {
             borderRadius: BorderRadius.circular(20.0),
             child: const FadeInImage(
               placeholder: AssetImage("assets/no-image.jpg"),
-              image: NetworkImage('https://via.placeholder.com/300x400'),
+              image: NetworkImage('https://picsum.photos/200/300'),
               width: 140.0,
               height: 150.0,
               fit: BoxFit.cover,
