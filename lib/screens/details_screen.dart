@@ -78,28 +78,32 @@ class _PosterAndTitle extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 20.0,),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                movieText,
-                style: textTheme.headline5,
-                overflow: TextOverflow.ellipsis,
-                maxLines: 2,
-              ),
-              Text(
-                titleMovie,
-                style: textTheme.subtitle1,
-                overflow: TextOverflow.ellipsis
-              ),
-              Row(
+          Expanded(
+            child: Container(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Icon(Icons.star_outline, size: 15,color: Colors.grey,),
-                  const SizedBox(width: 10.0,),
-                  Text("$voteMovie",style:textTheme.caption)
+                  Text(
+                    movieText,
+                    style: textTheme.headline5,
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 2,
+                  ),
+                  Text(
+                    titleMovie,
+                    style: textTheme.subtitle1,
+                    overflow: TextOverflow.ellipsis
+                  ),
+                  Row(
+                    children: [
+                      const Icon(Icons.star_outline, size: 15,color: Colors.grey,),
+                      const SizedBox(width: 10.0,),
+                      Text("$voteMovie",style:textTheme.caption)
+                    ],
+                  )
                 ],
-              )
-            ],
+              ),
+            ),
           )
 
         ],
@@ -131,7 +135,8 @@ class _CustomAppBar extends StatelessWidget {
           alignment: Alignment.bottomCenter,
           child: Text(
             titleMovie,
-            style: const TextStyle(fontSize: 16),
+            style: const TextStyle(fontSize: 16, ),
+            textAlign: TextAlign.center,
           )
         ),
         background: FadeInImage(
