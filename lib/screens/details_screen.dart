@@ -24,7 +24,7 @@ class DetailsScreen extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 30.0),
                 child: Text("Actors",style: Theme.of(context).textTheme.headline5,)
                 ),
-              CastingCards(),
+              CastingCards( movieId: movie.id,),
             ]),
           )
         ],
