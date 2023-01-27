@@ -17,7 +17,12 @@ class HomeScreen extends StatelessWidget {
         title: Text("Movies in cinema", style: textTheme.headline1 ,),
         actions: [
           IconButton(
-            onPressed: (){}, 
+            onPressed: (){
+	      return showSearch(
+		context: context,
+		delegate: 	
+	      );
+	    }, 
             icon: const Icon(Icons.search_rounded)
           )
         ],
