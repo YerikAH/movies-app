@@ -1,6 +1,5 @@
 # Movie app
-
-text
+An application that deals with movies, you can see reviews among other things, By the way it consumes the API of [themoviedb](https://www.themoviedb.org/).
 ## Development 
 ### Project structure
 text
@@ -12,13 +11,16 @@ text
 
 1. [Flutter](https://flutter.dev/)
 2. [Dart](https://dart.dev/)
+3. [http](https://pub.dev/packages/http)
+4. [card_swiper](https://pub.dev/packages/card_swiper)
+5. [provider](https://pub.dev/packages/provider)
 
 ## Demo 
 
 You can see the app running, just open the terminal and enter the following commands:
 ```
-git clone link
-cd calc-IMC
+git clone https://github.com/YerikAH/movies-app
+cd movies-app
 flutter run
 ```
 ### Screenshots
