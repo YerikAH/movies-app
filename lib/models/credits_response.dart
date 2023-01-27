@@ -65,7 +65,7 @@ class Cast {
   String? job;
 
 
-    get fullProfileImg{
+  get fullProfileImg{
     if(profilePath != null){
       return "https://image.tmdb.org/t/p/w500$profilePath";
     }else{
