@@ -31,11 +31,9 @@ class MovieSearchDelegate extends SearchDelegate{
   @override
   Widget buildSuggestions(BuildContext context){
     if(query.isEmpty){
-      return Container(
-	child: Center(
+      return const Center(
 	  child: Icon(Icons.movie_creation_outlined, size: 100.0, color: Colors.black38,),
-	),
-      );
+	);
     }
     return Container();
   }

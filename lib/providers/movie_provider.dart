@@ -18,7 +18,6 @@ class MoviesProvider extends ChangeNotifier{
   int _popularPages = 0;
 
   MoviesProvider(){
-    print("Movie provider inicializado");
     getOnDisplayMovies();
     getPopularMovies();
   }
@@ -42,7 +41,6 @@ class MoviesProvider extends ChangeNotifier{
   }
   
   getPopularMovies() async{
-
     _popularPages++;
     final jsonData = await _getJsonData("3/movie/popular",_popularPages);
 
@@ -52,7 +50,6 @@ class MoviesProvider extends ChangeNotifier{
   }
 
   Future <List<Cast>> getMovieCast(int moviesId) async{
-    print("Info");
     if(moviesCast.containsKey(moviesId)) return moviesCast[moviesId]!;
 
     final jsonData = await _getJsonData("3/movie/$moviesId/credits");
