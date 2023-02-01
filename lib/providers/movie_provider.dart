@@ -72,9 +72,7 @@ class MoviesProvider extends ChangeNotifier{
   
     final response = await http.get(url);
     final searchResponse  = SearchResponse.fromJson(jsonDecode(response.body));
-    return searchResponse;
-
-  
+    return searchResponse.results;
   }
 
 }
