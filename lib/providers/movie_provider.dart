@@ -61,17 +61,17 @@ class MoviesProvider extends ChangeNotifier{
     
   }
 
-  Future<List<Result>> getSearchMovie( String query ) async{
+  Future<List<Result>> searchMovies( String query ) async{
     final url =
-    Uri.https(_baseUrl, '3/movie/search', {
+    Uri.https(_baseUrl, '3/search/movie', {
       'api_key':_apiKey,
       'language':_language,
       'query':query
     });
 
-  
     final response = await http.get(url);
     final searchResponse  = SearchResponse.fromJson(jsonDecode(response.body));
+    print(searchResponse.results);
     return searchResponse.results;
   }
 
