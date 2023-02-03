@@ -29,7 +29,7 @@ class MovieSearchDelegate extends SearchDelegate {
   @override
   Widget buildResults(BuildContext context) {
     return Text("my build results",
-        style: TextStyle(color: AppTheme.textColor));
+        style: TextStyle(color: AppTheme.gray));
   }
 
   Widget _emptyContainer() {
@@ -84,11 +84,17 @@ class _MovieItem extends StatelessWidget{
     return ListTile(
         leading: FadeInImage(
 	  placeholder: AssetImage("assets/no-image.jpg"),
-	  image: NetworkImage( movie.fullBackdropPath),
+	  image: NetworkImage( movie.fullPosterImg),
 	  width: 50.0,
-	  fit: BoxFit.cover,
+	  fit: BoxFit.contain,
 
 	),
+
+	title: Text(movie.title!),
+	subtitle: Text ( movie.originalTitle!),
+	onTap: (){
+	  Navigator.pushNamed(context, 'details', arguments: movie);
+	},
     );
   }
 

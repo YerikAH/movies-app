@@ -18,13 +18,13 @@ class DetailsScreen extends StatelessWidget {
           _CustomAppBar(backdropImage: movie.fullBackdropPath, titleMovie: movie.title,),
           SliverList(
             delegate: SliverChildListDelegate([
-              _PosterAndTitle(image: movie.fullPosterImg, titleMovie: movie.title, voteMovie: movie.voteAverage, movieText: movie.originalTitle,),
-              _Overview(descriptionMovie: movie.overview,),
+              _PosterAndTitle(image: movie.fullPosterImg, titleMovie: movie.title!, voteMovie: movie.voteAverage!, movieText: movie.originalTitle!,),
+              _Overview(descriptionMovie: movie.overview!,),
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 30.0),
                 child: Text("Actors",style: Theme.of(context).textTheme.headline5,)
                 ),
-              CastingCards( movieId: movie.id,),
+              CastingCards( movieId: movie.id!,),
             ]),
           )
         ],
@@ -114,7 +114,7 @@ class _PosterAndTitle extends StatelessWidget {
 
 class _CustomAppBar extends StatelessWidget {
     final String backdropImage;
-    final String titleMovie;
+    final String? titleMovie;
   const _CustomAppBar({
     Key? key, required this.backdropImage, required this.titleMovie,
   }) : super(key: key);
@@ -134,7 +134,7 @@ class _CustomAppBar extends StatelessWidget {
           color: Colors.black12,
           alignment: Alignment.bottomCenter,
           child: Text(
-            titleMovie,
+            titleMovie!,
             style: const TextStyle(fontSize: 16, ),
             textAlign: TextAlign.center,
           )
