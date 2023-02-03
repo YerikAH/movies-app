@@ -17,7 +17,6 @@ class _MovieSliderState extends State<MovieSlider> {
   @override
   void initState(){
     super.initState();
-    print("HOla mundo");
     scrollController.addListener(() {
       if (scrollController.position.pixels + 500 >= scrollController.position.maxScrollExtent){
         final double diff = scrollController.position.maxScrollExtent - scrollController.position.pixels; 
@@ -47,9 +46,9 @@ class _MovieSliderState extends State<MovieSlider> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20.0),
-            child: Text("Populares", style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.w700, fontFamily: "NunitoSans")),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20.0),
+            child: Text("Populares", style: Theme.of(context).textTheme.headline5),
           ),
           const SizedBox( height:  15.0 ,),
           Expanded(
@@ -58,7 +57,6 @@ class _MovieSliderState extends State<MovieSlider> {
               scrollDirection: Axis.horizontal,
               itemCount: widget.moviesPopular.length,
               itemBuilder: (context, index){
-
                 final String imagePath = widget.moviesPopular[index].fullPosterImg;
                 final String nameMovie = widget.moviesPopular[index].thereTitle;
                 final Result movie = widget.moviesPopular[index];
@@ -104,6 +102,7 @@ class _MoviePoster extends StatelessWidget {
           const SizedBox( height:  5.0 ,),
           Text(
             nameMovie,
+	    style: Theme.of(context).textTheme.bodyText1,
             overflow: TextOverflow.ellipsis,
             textAlign: TextAlign.center,
           )
