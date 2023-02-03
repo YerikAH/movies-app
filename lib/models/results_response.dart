@@ -23,7 +23,7 @@ class Result {
     if(posterPath != null){
       return "https://image.tmdb.org/t/p/w500${posterPath}";
     }else{
-      return "http://ramenparados.com/wp-content/uploads/2018/12/yuruyuri-10-aniversario.jpg";
+      return "https://i.pinimg.com/originals/88/99/7e/88997e72673d6d7d55a9c998217befd6.jpg";
     }
   }
   get thereTitle{
@@ -38,7 +38,7 @@ class Result {
     if(backdropPath != null){
       return "https://image.tmdb.org/t/p/w500${backdropPath}";
     }else{
-      return "http://ramenparados.com/wp-content/uploads/2018/12/yuruyuri-10-aniversario.jpg";
+      return "https://png.pngtree.com/thumb_back/fw800/background/20200821/pngtree-black-solid-color-background-image_396552.jpg";
     }
   }
 

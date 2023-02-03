@@ -10,9 +10,6 @@ class DetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Result movie = ModalRoute.of(context)!.settings.arguments as Result;
-    print(movie.title);
-
-
     return  Scaffold(
       body: CustomScrollView(
         slivers: [
@@ -80,30 +77,28 @@ class _PosterAndTitle extends StatelessWidget {
           ),
           const SizedBox(width: 20.0,),
           Expanded(
-            child: Container(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    movieText,
-                    style: textTheme.subtitle1,
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 2,
-                  ),
-                  Text(
-                    titleMovie,
-                    style: textTheme.bodyText1,
-                    overflow: TextOverflow.ellipsis
-                  ),
-                  Row(
-                    children: [
-                      const Icon(Icons.star_outline, size: 15,color: Colors.grey,),
-                      const SizedBox(width: 10.0,),
-                      Text("$voteMovie",style:textTheme.caption,)
-                    ],
-                  )
-                ],
-              ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  movieText,
+                  style: textTheme.subtitle1,
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 2,
+                ),
+                Text(
+                  titleMovie,
+                  style: textTheme.bodyText1,
+                  overflow: TextOverflow.ellipsis
+                ),
+                Row(
+                  children: [
+                    const Icon(Icons.star_outline, size: 15,color: Colors.grey,),
+                    const SizedBox(width: 10.0,),
+                    Text("$voteMovie",style:textTheme.caption,)
+                  ],
+                )
+              ],
             ),
           )
 

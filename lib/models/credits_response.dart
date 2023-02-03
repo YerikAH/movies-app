@@ -69,7 +69,7 @@ class Cast {
     if(profilePath != null){
       return "https://image.tmdb.org/t/p/w500$profilePath";
     }else{
-      return "http://ramenparados.com/wp-content/uploads/2018/12/yuruyuri-10-aniversario.jpg";
+      return "https://i.pinimg.com/originals/88/99/7e/88997e72673d6d7d55a9c998217befd6.jpg";
     }
   }
   factory Cast.fromJson(Map<String, dynamic> json) => Cast(
