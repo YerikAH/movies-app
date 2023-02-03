@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/models/models.dart';
 import '../widgets/widgets.dart';
+import 'package:movies_app/theme/app_theme.dart';
 
 class DetailsScreen extends StatelessWidget {
    
@@ -45,7 +46,7 @@ class _Overview extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 30.0,vertical: 10.0),
       child: Text(descriptionMovie,
       textAlign: TextAlign.justify,
-      style: Theme.of(context).textTheme.subtitle1,
+      style: Theme.of(context).textTheme.bodyText1,
       ),
     );
   }
@@ -85,20 +86,20 @@ class _PosterAndTitle extends StatelessWidget {
                 children: [
                   Text(
                     movieText,
-                    style: textTheme.headline5,
+                    style: textTheme.subtitle1,
                     overflow: TextOverflow.ellipsis,
                     maxLines: 2,
                   ),
                   Text(
                     titleMovie,
-                    style: textTheme.subtitle1,
+                    style: textTheme.bodyText1,
                     overflow: TextOverflow.ellipsis
                   ),
                   Row(
                     children: [
                       const Icon(Icons.star_outline, size: 15,color: Colors.grey,),
                       const SizedBox(width: 10.0,),
-                      Text("$voteMovie",style:textTheme.caption)
+                      Text("$voteMovie",style:textTheme.caption,)
                     ],
                   )
                 ],
@@ -122,7 +123,7 @@ class _CustomAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
-      backgroundColor: Colors.indigo,
+      backgroundColor: AppTheme.black,
       expandedHeight: 200.0,
       floating: false,
       pinned: true,
@@ -131,11 +132,11 @@ class _CustomAppBar extends StatelessWidget {
         titlePadding: const EdgeInsets.all(0.0),
         title: Container(
           width: double.infinity,
-          color: Colors.black12,
+          color: Colors.black38,
           alignment: Alignment.bottomCenter,
           child: Text(
             titleMovie!,
-            style: const TextStyle(fontSize: 16, ),
+            style: Theme.of(context).textTheme.headline1,
             textAlign: TextAlign.center,
           )
         ),
