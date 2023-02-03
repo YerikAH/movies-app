@@ -5,7 +5,7 @@ An application that deals with movies, you can see reviews among other things, B
 text
 
 ### My experience developing
-text
+An app that turned out to be a bit simple, since I use some flutter dependencies. I learned to consume an API and use some more widgets. This application was developed with the aim of practicing and learning a little more about flutter. Soon I will develop a slightly more complex application that consumes an API.
 
 ### Technologies used in the project
 
@@ -24,8 +24,9 @@ cd movies-app
 flutter run
 ```
 ### Screenshots
-
-<img src="./assets/test.png" width="375" alt="app" />
+<img src="./screenshots/home-ss.png" width="375" alt="app" />
+<img src="./screenshots/detail-ss.png" width="375" alt="app" />
+<img src="./screenshots/search-ss.png" width="375" alt="app" />
 
 ## Author
 
